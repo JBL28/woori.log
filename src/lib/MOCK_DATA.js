@@ -1,4 +1,4 @@
-const USER =[
+export const USER =[
   {
     "user_id": "user001",
     "user_name": "우리",
@@ -19,7 +19,7 @@ const USER =[
   }
 ]
 
-const GROUP = [
+export const GROUP = [
   {
     "group_id": "group001",
     "group_name": "프론트연합",
@@ -34,7 +34,7 @@ const GROUP = [
   }
 ]
 
-const POST = [
+export const POST = [
   {
     "post_id": "post001",
     "post_title": "Next.js 14에서의 App Router 완벽 가이드",
@@ -78,4 +78,3 @@ const POST = [
 ]
 
 
-export {USER, GROUP, POST};
