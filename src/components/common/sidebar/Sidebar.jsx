@@ -13,7 +13,7 @@ const sidebarItems = [
 ]
 
 const quickActions = [
-  { title: "Create Group", href: "/groups/create", icon: Plus },
+  { title: "Create Group", href: "/createGroup", icon: Plus },
 ]
 
 export function Sidebar() {

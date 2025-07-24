@@ -26,7 +26,7 @@ export default function Header() {
             <input
               type="text"
               placeholder="Search posts, groups, or users..."
-              className="w-full pl-10 pr-10 h-10 rounded-xl border border-gray-400 focus:border-[#0067AC] focus:ring-[#0067AC] dark:border-gray-700 dark:bg-slate-800"
+              className="w-full pl-10 pr-10 h-10 rounded-xl bg-white border border-gray-400 focus:border-[#0067AC] focus:ring-[#0067AC] dark:border-gray-700 dark:bg-slate-800"
             />
           </div>
         </div>
@@ -37,7 +37,7 @@ export default function Header() {
             Create Post
           </Link>
           
-          <Link href="/" className="p-2 border rounded-xl border-[#0067AC] text-[#0067AC] hover:bg-[#0067AC] hover:text-white flex items-center">
+          <Link href="/createGroup" className="p-2 border rounded-xl border-[#0067AC] text-[#0067AC] hover:bg-[#0067AC] hover:text-white flex items-center">
             <Users className="mr-2 h-4 w-4" />
             Create Group
           </Link>
