@@ -78,4 +78,3 @@ export const POST = [
 ]
 
 
-export {USER, GROUP, POST};
