@@ -3,37 +3,22 @@
 import { useState } from "react";
 import { X, Plus, Eye, Save, Send } from "lucide-react";
 import { Switch } from "@/components/ui/Switch";
-import { Button } from "@/components/ui/Button";
+import { GROUP } from "@/lib/MOCK_DATA";
+
+
+const myUserId = "user001"; // 실제로는 로그인 상태에서 가져와야 함
+
 
 export default function CreatePostPage() {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState(`# Welcome to Markdown Editor
-
-This is a **bold** text and this is *italic* text.
-
-## Code Example
-
-\`\`\`javascript
-function hello() {
-  console.log("Hello, World!");
-}
-\`\`\`
-
-## List Example
-
-- Item 1
-- Item 2
-- Item 3
-
-> This is a blockquote
-
-[Link to woori.Log](https://woori.log)
-`);
+  const [content, setContent] = useState('');
   const [tags, setTags] = useState(["React", "Tutorial"]);
   const [newTag, setNewTag] = useState("");
   const [selectedGroup, setSelectedGroup] = useState("");
   const [isGroupPost, setIsGroupPost] = useState(false);
-  const [tab, setTab] = useState("edit");
+
+  const myGroups = GROUP.filter(group => group.group_member.includes(myUserId));
+
 
   const handleSubmit = () => {
     console.log("📝 New Post Data:");
@@ -64,21 +49,7 @@ function hello() {
     }
   };
 
-  const markdownToHtml = (markdown) => {
-    return markdown
-      .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mb-4">$1</h1>')
-      .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-semibold mb-3">$1</h2>')
-      .replace(/^### (.*$)/gim, '<h3 class="text-xl font-medium mb-2">$1</h3>')
-      .replace(/\*\*(.*)\*\*/gim, '<strong class="font-bold">$1</strong>')
-      .replace(/\*(.*)\*/gim, '<em class="italic">$1</em>')
-      .replace(/\`\`\`(\w+)?\n([\s\S]*?)\`\`\`/gim, '<pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto"><code class="text-sm">$2</code></pre>')
-      .replace(/`([^`]+)`/gim, '<code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm">$1</code>')
-      .replace(/^- (.*$)/gim, '<li class="ml-4">$1</li>')
-      .replace(/(<li.*<\/li>)/s, '<ul class="list-disc mb-4">$1</ul>')
-      .replace(/^> (.*$)/gim, '<blockquote class="border-l-4 border-blue-500 pl-4 italic mb-4">$1</blockquote>')
-      .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" class="text-blue-600 hover:underline">$1</a>')
-      .replace(/\n/gim, "<br>");
-  };
+
 
   return (
     <div className="flex min-h-screen">
@@ -115,10 +86,12 @@ function hello() {
                   onChange={(e) => setSelectedGroup(e.target.value)}
                   className="w-full border p-2 rounded"
                 >
-                  <option value="">Select a group</option>
-                  <option value="frontend">Frontend Developers</option>
-                  <option value="backend">Backend Engineers</option>
-                  <option value="design">UI/UX Designers</option>
+                  <option value="">그룹을 선택하세요</option>
+                  {myGroups.map((group) => (
+                    <option key={group.group_id} value={group.group_id}>
+                      {group.group_name}
+                    </option>
+                  ))}
                 </select>
               )}
             </div>
@@ -162,34 +135,7 @@ function hello() {
           {/* Markdown Editor */}
           <div>
             <label className="block text-sm font-medium mb-1">Content</label>
-            <div className="grid grid-cols-2 gap-2 mb-2">
-              <button
-                className={`py-1 px-3 rounded text-sm ${tab === "edit" ? "bg-[#0067AC] text-white" : "border"}`}
-                onClick={() => setTab("edit")}
-              >
-                Edit
-              </button>
-              <button
-                className={`py-1 px-3 rounded text-sm ${tab === "preview" ? "bg-[#0067AC] text-white" : "border"}`}
-                onClick={() => setTab("preview")}
-              >
-                Preview
-              </button>
-            </div>
-
-            {tab === "edit" ? (
-              <textarea
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                className="w-full min-h-[500px] border rounded p-3 font-mono text-sm"
-                placeholder="Write your post content in Markdown..."
-              />
-            ) : (
-              <div
-                className="min-h-[500px] border p-4 rounded bg-white prose max-w-none dark:prose-invert"
-                dangerouslySetInnerHTML={{ __html: markdownToHtml(content) }}
-              />
-            )}
+              {/* 마크다운 에디터 들어올 부분 */}
           </div>
 
           {/* Action Buttons */}
