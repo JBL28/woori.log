@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { X, Plus, Eye, Save, Send } from "lucide-react";
 import { Switch } from "@/components/ui/Switch";
 import { GROUP } from "@/lib/MOCK_DATA";
+import MDEdit from "@/components/posts/MDEdit";
 
 
 const myUserId = "user001"; // 실제로는 로그인 상태에서 가져와야 함
@@ -11,11 +12,11 @@ const myUserId = "user001"; // 실제로는 로그인 상태에서 가져와야 
 
 export default function CreatePostPage() {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState('');
   const [tags, setTags] = useState(["React", "Tutorial"]);
   const [newTag, setNewTag] = useState("");
   const [selectedGroup, setSelectedGroup] = useState("");
   const [isGroupPost, setIsGroupPost] = useState(false);
+  const getValue = useRef("");
 
   const myGroups = GROUP.filter(group => group.group_member.includes(myUserId));
 
@@ -23,7 +24,7 @@ export default function CreatePostPage() {
   const handleSubmit = () => {
     console.log("📝 New Post Data:");
     console.log("Title:", title);
-    console.log("Content:", content);
+    console.log("Content:", getValue.current);
     console.log("Tags:", tags);
     console.log("Is Group Post:", isGroupPost);
     if (isGroupPost) {
@@ -135,7 +136,7 @@ export default function CreatePostPage() {
           {/* Markdown Editor */}
           <div>
             <label className="block text-sm font-medium mb-1">Content</label>
-              {/* 마크다운 에디터 들어올 부분 */}
+              <MDEdit height="500" getValue={getValue}/>
           </div>
 
           {/* Action Buttons */}
