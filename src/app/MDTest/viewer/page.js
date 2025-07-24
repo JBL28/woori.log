@@ -9,7 +9,10 @@ import MDView from '@/components/posts/MDView';
 const page = () => {
     return (
         <div>
-            <MDView Document="# 마크다운 언어입니다."/>
+            <MDView Document="
+            # 마크다운 언어입니다.
+            <br><br>
+            ## 이것은 목차입니다."/>
         </div>
     );
 }
