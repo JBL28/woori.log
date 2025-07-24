@@ -76,3 +76,6 @@ const POST = [
     "post_tag": ["typescript", "redux", "frontend"]
   }
 ]
+
+
+export {USER, GROUP, POST};
