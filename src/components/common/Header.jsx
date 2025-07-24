@@ -32,7 +32,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center space-x-4">
-          <Link href="/" className="p-2 rounded-xl bg-[#0067AC] text-white hover:bg-[#0067AC]/90 flex items-center">
+          <Link href="/posts/write" className="p-2 rounded-xl bg-[#0067AC] text-white hover:bg-[#0067AC]/90 flex items-center">
             <PenTool className="mr-2 h-4 w-4" />
             Create Post
           </Link>
