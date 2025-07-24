@@ -20,7 +20,7 @@ export function Sidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className="w-64 h-screen bg-white/50 backdrop-blur-sm border-r dark:bg-slate-900/50">
+    <aside className="w-64 h-screen bg-white/50 backdrop-blur-sm border-r border-gray-200 dark:bg-slate-900/50">
       <div className="p-6">
         {/* Main Navigation */}
         <nav className="space-y-2">
