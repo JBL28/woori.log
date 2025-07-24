@@ -1,7 +1,11 @@
+import UserPosts from "@/components/common/UserPost";
+
+
+
 export default function Home() {
   return (
     <>
-    홈화면입니다.
+    <UserPosts/>
     </>
   );
 }

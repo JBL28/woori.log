@@ -22,13 +22,13 @@ const USER =[
 const GROUP = [
   {
     "group_id": "group001",
-    "group_name": "프론트연합",
+    "group_name": "woori.log",
     "group_intro": "프론트엔드 기술을 연구하는 개발자 모임입니다.",
     "group_member": ["user001", "user003"]
   },
   {
     "group_id": "group002",
-    "group_name": "백엔드스쿼드",
+    "group_name": "HTTP-LAB",
     "group_intro": "서버, 데이터베이스를 사랑하는 사람들의 모임!",
     "group_member": ["user002"]
   }
