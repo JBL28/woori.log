@@ -102,7 +102,13 @@ export const SignInPage = ({
       {/* Right column: hero image + testimonials */}
       {heroImageSrc && (
         <section className="hidden md:block flex-2 relative p-4">
-          <div className="animate-slide-right  animate-delay-300 absolute inset-4 rounded-3xl bg-cover bg-center" style={{ backgroundImage: `url(${heroImageSrc})`, objectFit:"cover" }}></div>
+          <div className="animate-slide-right  flex items-end animate-delay-300 absolute inset-4 rounded-3xl bg-cover bg-center" style={{ backgroundImage: `url(${heroImageSrc})`, objectFit:"cover" }}>
+            <div className='w-full relative flex '>
+              {/* <div className='bg-white w-2/5 h-25'></div>
+            <div className='bg-transpert border w-10 h-10 rounded-full  absolute z-3 -top-8 -left-0 z-5'></div> */}
+            </div>
+            
+          </div>
         </section>
       )}
     </div>
