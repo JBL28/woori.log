@@ -1,0 +1,19 @@
+.content-box::after, .content-box::before{
+    width: 1.5rem;
+    height:1.5rem;
+    content:"";
+    position: absolute;
+}
+.content-box::after{
+    background-color: transparent;
+    top: -1.5rem;
+    border-bottom-left-radius: 1.2rem;
+    box-shadow: -0.375rem 0.375rem  var(--color-background);
+}
+.content-box::before{
+    background-color: transparent;
+    right: -1.5rem;
+    bottom: 0;
+    border-bottom-left-radius: 1.2rem;
+    box-shadow: -0.375rem 0.375rem  var(--color-background);
+}

@@ -1,7 +1,14 @@
+import HotBoard from "@/components/HotBoard/HotBoard";
+import Maincontent from "@/components/main/Maincontent";
+
 export default function Home() {
   return (
     <>
-    홈화면입니다.
+    <div className="flex items-center justify-center w-full h-9/10 flex-row " >
+      <Maincontent/>
+      <HotBoard/>
+    </div>
+    
     </>
   );
 }
